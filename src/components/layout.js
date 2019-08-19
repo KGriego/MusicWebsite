@@ -1,18 +1,13 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+/* Library Imports */
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { Menu, Sidebar } from "semantic-ui-react";
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+/* Component Imports */
+import Header from "./header";
+import "semantic-ui-css/semantic.min.css";
 
-import Header from "./header"
-import "./layout.css"
-
-const Layout = ({ children }) => {
+const Layout = ({ children, handleSidebarHide, handleShowClick, visible }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -21,32 +16,31 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
-
+  `);
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
+    <Sidebar.Pushable as={"div"}>
+      <Sidebar
+        as={Menu}
+        animation="overlay"
+        icon="labeled"
+        inverted
+        onHide={handleSidebarHide}
+        vertical
+        visible={visible}
+        width="thin"
       >
+        Menu in here
+      </Sidebar>
+      <Sidebar.Pusher>
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          handleShowClick={handleShowClick}
+        />
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
+        {/* Footer here */}
+      </Sidebar.Pusher>
+    </Sidebar.Pushable>
+  );
+};
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
+export default Layout;
