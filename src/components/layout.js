@@ -6,6 +6,7 @@ import { Menu, Sidebar } from "semantic-ui-react";
 /* Component Imports */
 import Header from "./header";
 import SidebarMenu from "./sidebarMenu";
+import "../css/layout.css";
 import "semantic-ui-css/semantic.min.css";
 
 const Layout = ({ children, handleSidebarHide, handleShowClick, visible }) => {
@@ -19,27 +20,29 @@ const Layout = ({ children, handleSidebarHide, handleShowClick, visible }) => {
     }
   `);
   return (
-    <Sidebar.Pushable as="div">
-      <Sidebar
-        animation={"push"}
-        as={Menu}
-        icon={"labeled"}
-        onHide={handleSidebarHide}
-        vertical
-        visible={visible}
-        width={"thin"}
-      >
-        <SidebarMenu />
-      </Sidebar>
-      <Sidebar.Pusher>
-        <Header
-          handleShowClick={handleShowClick}
-          siteTitle={data.site.siteMetadata.title}
-        />
-        <main>{children}</main>
-        {/* Footer here */}
-      </Sidebar.Pusher>
-    </Sidebar.Pushable>
+    <div className={"layout"}>
+      <Sidebar.Pushable as="div">
+        <Sidebar
+          animation={"push"}
+          as={Menu}
+          icon={"labeled"}
+          onHide={handleSidebarHide}
+          vertical
+          visible={visible}
+          width={"thin"}
+        >
+          <SidebarMenu />
+        </Sidebar>
+        <Sidebar.Pusher>
+          <Header
+            handleShowClick={handleShowClick}
+            siteTitle={data.site.siteMetadata.title}
+          />
+          <main>{children}</main>
+          {/* Footer here */}
+        </Sidebar.Pusher>
+      </Sidebar.Pushable>
+    </div>
   );
 };
 
