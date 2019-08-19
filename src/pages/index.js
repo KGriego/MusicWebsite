@@ -12,7 +12,7 @@ const IndexPage = () => (
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      My name is Kevin. You play Latin, Jazz, Raggae, Funk, R&B, Carribean and
+      My name is Kevin. Your go by Tony Tone. You play Latin, Jazz, Raggae, Funk, R&B, Carribean and
       just Music.
     </div>
     <Link to="/page-2/">Go to page 2</Link>
