@@ -1,7 +1,10 @@
+/*Library Imports */
 import React from "react";
 
+/* Component Imports */
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Cassette from "../components/cassette";
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -21,12 +24,8 @@ class IndexPage extends React.Component {
         handleShowClick={this.handleShowClick}
       >
         <SEO title="Home" />
-        <h1>Hi people</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <div style={{ marginBottom: `1.45rem` }}>
-          My name is Kevin. Your go by Tony Tone. You play Latin, Jazz, Raggae,
-          Funk, R&B, Carribean and just Music.
+        <div style={{ width: "80%", position: "relative", marginTop: 40 }}>
+          <Cassette />
         </div>
       </Layout>
     );
