@@ -10,14 +10,14 @@ const Header = ({ siteTitle, handleShowClick }) => (
   <header className={"header"}>
     <Grid columns={"equal"} textAlign={"center"}>
       <Grid.Row>
-        <Grid.Column only={"mobile"} textAlign={"left"}>
+        <Grid.Column mobile={"1"} only={"mobile"} textAlign={"left"}>
           <Icon name={"bars"} onClick={handleShowClick} />
         </Grid.Column>
         <Grid.Column only={"computer tablet"}>
           <Link to={"/About"}>About</Link>
         </Grid.Column>
-        <Grid.Column>
-          <Link to={"/"} style={{ textDecoration: `none` }} className={"logo"}>
+        <Grid.Column mobile={"13"}>
+          <Link className={"logo"} to={"/"}>
             {siteTitle}
           </Link>
         </Grid.Column>

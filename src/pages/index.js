@@ -29,7 +29,7 @@ class IndexPage extends React.Component {
           My name is Kevin. Your go by Tony Tone. You play Latin, Jazz, Raggae,
           Funk, R&B, Carribean and just Music.
         </div>
-        <Link to="/page-2/">Go to page 2</Link>
+        <Link to={"/page-2/"}>Go to page 2</Link>
       </Layout>
     );
   }
