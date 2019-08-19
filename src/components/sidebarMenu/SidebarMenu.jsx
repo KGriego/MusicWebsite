@@ -1,7 +1,7 @@
 /* Library Imports */
 import React from "react";
-import { Link } from "gatsby";
-import { Grid, Icon, Menu } from "semantic-ui-react";
+import { navigate } from "gatsby";
+import { Menu } from "semantic-ui-react";
 
 /* Stlye Imports */
 import "../../css/sidebarMenu.css";
@@ -9,15 +9,19 @@ import "../../css/sidebarMenu.css";
 class SidebarMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeItem: "account" };
+    this.state = { activeItem: "Tony Tone's Music" };
   }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  handleItemClick = (e, { name }) =>
+    this.setState(
+      { activeItem: name },
+      navigate(name === "Tony Tone's Music" ? "/" : name)
+    );
 
   render() {
     const { activeItem } = this.state;
     return (
-      <Menu vertical compact secondary className={"sidebarMenu"}>
+      <Menu vertical compact secondary pointing className={"sidebarMenu"}>
         <Menu.Item
           header
           name={"Tony Tone's Music"}
@@ -45,8 +49,8 @@ class SidebarMenu extends React.Component {
           onClick={this.handleItemClick}
         />
         <Menu.Item
-          name={"Videos/Photos"}
-          active={activeItem === "Videos/Photos"}
+          name={"Videos&Photos"}
+          active={activeItem === "Videos&Photos"}
           onClick={this.handleItemClick}
         />
       </Menu>
